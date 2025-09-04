@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Niranga Nayanajith - Portfolio</title>
+  <meta name="description" content="Portfolio of Niranga Nayanajith, Developer & Cybersecurity Enthusiast. Explore projects, skills, certifications, and contact info." />
+  <link rel="icon" href="Images/favicon.ico" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;500;600;700&display=swap');
+
+    /* Base styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #cbd5e1; /* Tailwind slate-300 */
+      scroll-behavior: smooth;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Text gradient with neon glow */
+    .text-gradient {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(90deg, #00ffea8e, #00b3ff, #00ffeaa3);
+      animation: neonGlow 3s ease-in-out infinite alternate;
+      user-select: none;
+    }
+
+    @keyframes neonGlow {
+      0% {
+        filter: drop-shadow(0 0 5px #00ffeabc) drop-shadow(0 0 10px #00b3ff);
+      }
+      100% {
+        filter: drop-shadow(0 0 20px #00ffeaa7) drop-shadow(0 0 30px #00b3ff);
+      }
+    }
+
+    /* Neon button style */
+    .btn-neon {
+      background: #139dd8;
+      box-shadow:
+        0 0 5px #089cdc,
+        0 0 10px rgb(10, 137, 191),
+        0 0 20px rgb(6, 160, 227),
+        0 0 40px #0793cf;
+      transition: all 0.3s ease;
+      color: black;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      display: inline-block;
+      text-align: center;
+      user-select: none;
+    }
+    .btn-neon:hover,
+    .btn-neon:focus-visible {
+      background: #1fffec;
+      box-shadow:
+        0 0 10px #3fffef,
+        0 0 20px #3dffef,
+        0 0 30px #00ffea,
+        0 0 50px #00ffea;
+      color: #010101;
+      outline: none;
+      transform: scale(1.05);
+    }
+    /* Add these styles to your existing CSS */
+
+/* Full-screen hero section */
+#hero {
+  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Adjust for mobile devices */
+@media (max-height: 600px) {
+  #hero {
+    min-height: 600px;
+    padding: 2rem 0;
+  }
+}
+
+/* Ensure content is centered and responsive */
+#hero .relative.z-10 {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Make text more prominent on full screen */
+#hero h1 {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+#hero p:first-of-type {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: 1.5rem;
+}
+
+#hero p:last-of-type {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 2.5rem;
+}
+
+/* Scroll indicator animation */
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(-50%, -10px, 0);
+  }
+  70% {
+    transform: translate3d(-50%, -5px, 0);
+  }
+  90% {
+    transform: translate3d(-50%, -2px, 0);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+/* Ensure buttons are properly sized */
+#hero .btn-neon,
+#hero a[href="#contact"] {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  min-width: 160px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  #hero {
+    padding: 1rem;
+  }
+  
+  #hero .flex {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #hero .btn-neon,
+  #hero a[href="#contact"] {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  #hero h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+  }
+}
+
+/* Large screen adjustments */
+@media (min-width: 1920px) {
+  #hero h1 {
+    font-size: 7rem;
+  }
+  
+  #hero p:first-of-type {
+    font-size: 2.5rem;
+  }
+  
+  #hero p:last-of-type {
+    font-size: 1.5rem;
+  }
+}
+
+    /* Language badge */
+    .language-badge {
+      background: linear-gradient(90deg, #22d3ee, #3b82f6);
+      color: black;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      box-shadow:
+        0 0 8px #00fff7,
+        0 0 15px #00b3ff;
+      cursor: default;
+      user-select: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      text-align: center;
+    }
+    .language-badge:hover {
+      transform: scale(1.1);
+      box-shadow:
+        0 0 15px #00fff7,
+        0 0 30px #00b3ff;
+    }
+
+    /* Profile image */
+    .profile-img {
+      border-radius: 50%;
+      border: 4px solid #00b3ff;
+      box-shadow:
+        0 0 10px #00b3ff,
+        0 0 20px #00ffea;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .profile-img:hover,
+    .profile-img:focus-visible {
+      transform: scale(1.05) rotate(3deg);
+      box-shadow:
+        0 0 20px #00ffea,
+        0 0 40px #00b3ff;
+      outline: none;
+    }
+
+    /* Logo */
+    .logo-img {
+      height: 48px;
+      width: auto;
+      filter: drop-shadow(0 0 3px #00b3ff);
+      transition: transform 0.3s ease, filter 0.3s ease;
+      cursor: pointer;
+    }
+    .logo-img:hover,
+    .logo-img:focus-visible {
+      transform: scale(1.1) rotate(5deg);
+      filter: drop-shadow(0 0 10px #00ffea);
+      outline: none;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #00b3ff;
+      border-radius: 10px;
+    }
+
+    /* Object SVG background */
+    .object-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120%;
+      height: auto;
+      max-height: 100%;
+      transform: translate(-50%, -50%);
+      opacity: 0.1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Languages Section - Improved Spacing */
+#languages {
+  min-height: 100vh; /* Full viewport height */
+  padding: 8rem 1.5rem; /* More padding top and bottom */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Triangle Grid Container */
+.triangle-grid-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 0; /* Extra padding around the grid */
+}
+
+/* Updated Triangle Grid */
+.triangle-grid {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-auto-rows: 120px; /* Increased row height from 96px to 120px */
+  justify-items: center;
+  align-items: center;
+  gap: 2rem; /* Increased gap from 1.5rem to 2rem */
+  padding: 2rem 0; /* Extra padding inside grid */
+}
+
+/* Language Logo Improvements */
+.language-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.language-logo img {
+  width: 80px; /* Increased from 72px */
+  height: 80px; /* Increased from 72px */
+  filter: drop-shadow(0 0 6px #0993cea7);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.language-logo:hover,
+.language-logo:focus-visible {
+  transform: translateY(-5px); /* Add lift effect */
+  background: rgba(34, 211, 238, 0.1);
+  outline: none;
+}
+
+.language-logo:hover img,
+.language-logo:focus-visible img {
+  transform: scale(1.2); /* Reduced from 1.3 to prevent overlap */
+  filter:
+    drop-shadow(0 0 15px #0c8f8a)
+    drop-shadow(0 0 30px #0b7fb0cb);
+}
+
+/* Grid positioning - same as before but with better spacing */
+.triangle-grid > a:nth-child(1) { grid-column: 6 / span 1; }
+.triangle-grid > a:nth-child(2) { grid-column: 5 / span 1; }
+.triangle-grid > a:nth-child(3) { grid-column: 7 / span 1; }
+.triangle-grid > a:nth-child(4) { grid-column: 4 / span 1; }
+.triangle-grid > a:nth-child(5) { grid-column: 6 / span 1; }
+.triangle-grid > a:nth-child(6) { grid-column: 8 / span 1; }
+.triangle-grid > a:nth-child(7) { grid-column: 3 / span 1; }
+.triangle-grid > a:nth-child(8) { grid-column: 5 / span 1; }
+.triangle-grid > a:nth-child(9) { grid-column: 7 / span 1; }
+.triangle-grid > a:nth-child(10) { grid-column: 9 / span 1; }
+.triangle-grid > a:nth-child(11) { grid-column: 2 / span 1; }
+.triangle-grid > a:nth-child(12) { grid-column: 4 / span 1; }
+.triangle-grid > a:nth-child(13) { grid-column: 6 / span 1; }
+.triangle-grid > a:nth-child(14) { grid-column: 8 / span 1; }
+.triangle-grid > a:nth-child(15) { grid-column: 10 / span 1; }
+.triangle-grid > a:nth-child(16) { grid-column: 1 / span 1; }
+.triangle-grid > a:nth-child(17) { grid-column: 3 / span 1; }
+.triangle-grid > a:nth-child(18) { grid-column: 5 / span 1; }
+.triangle-grid > a:nth-child(19) { grid-column: 7 / span 1; }
+.triangle-grid > a:nth-child(20) { grid-column: 9 / span 1; }
+.triangle-grid > a:nth-child(21) { grid-column: 11 / span 1; }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .triangle-grid {
+    grid-template-columns: repeat(9, 1fr);
+    grid-auto-rows: 100px;
+    gap: 1.5rem;
+  }
+  
+  .language-logo img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  /* Adjust grid positions for smaller screens */
+  .triangle-grid > a:nth-child(1) { grid-column: 5 / span 1; }
+  .triangle-grid > a:nth-child(2) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(3) { grid-column: 6 / span 1; }
+  .triangle-grid > a:nth-child(4) { grid-column: 3 / span 1; }
+  .triangle-grid > a:nth-child(5) { grid-column: 5 / span 1; }
+  .triangle-grid > a:nth-child(6) { grid-column: 7 / span 1; }
+  .triangle-grid > a:nth-child(7) { grid-column: 2 / span 1; }
+  .triangle-grid > a:nth-child(8) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(9) { grid-column: 6 / span 1; }
+  .triangle-grid > a:nth-child(10) { grid-column: 8 / span 1; }
+    .triangle-grid > a:nth-child(10) { grid-column: 8 / span 1; }
+  .triangle-grid > a:nth-child(11) { grid-column: 1 / span 1; }
+  .triangle-grid > a:nth-child(12) { grid-column: 3 / span 1; }
+  .triangle-grid > a:nth-child(13) { grid-column: 5 / span 1; }
+  .triangle-grid > a:nth-child(14) { grid-column: 7 / span 1; }
+  .triangle-grid > a:nth-child(15) { grid-column: 9 / span 1; }
+  .triangle-grid > a:nth-child(16) { grid-column: 2 / span 1; }
+  .triangle-grid > a:nth-child(17) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(18) { grid-column: 6 / span 1; }
+  .triangle-grid > a:nth-child(19) { grid-column: 8 / span 1; }
+  .triangle-grid > a:nth-child(20) { grid-column: 3 / span 1; }
+  .triangle-grid > a:nth-child(21) { grid-column: 7 / span 1; }
+}
+
+@media (max-width: 768px) {
+  #languages {
+    padding: 6rem 1rem;
+    min-height: auto;
+  }
+  
+  .triangle-grid-container {
+    padding: 2rem 0;
+  }
+  
+  .triangle-grid {
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 90px;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .language-logo img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Mobile grid positions - more compact triangle */
+  .triangle-grid > a:nth-child(1) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(2) { grid-column: 3 / span 1; }
+  .triangle-grid > a:nth-child(3) { grid-column: 5 / span 1; }
+  .triangle-grid > a:nth-child(4) { grid-column: 2 / span 1; }
+  .triangle-grid > a:nth-child(5) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(6) { grid-column: 6 / span 1; }
+  .triangle-grid > a:nth-child(7) { grid-column: 1 / span 1; }
+  .triangle-grid > a:nth-child(8) { grid-column: 3 / span 1; }
+  .triangle-grid > a:nth-child(9) { grid-column: 5 / span 1; }
+  .triangle-grid > a:nth-child(10) { grid-column: 7 / span 1; }
+  .triangle-grid > a:nth-child(11) { grid-column: 2 / span 1; }
+  .triangle-grid > a:nth-child(12) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(13) { grid-column: 6 / span 1; }
+  .triangle-grid > a:nth-child(14) { grid-column: 1 / span 1; }
+  .triangle-grid > a:nth-child(15) { grid-column: 3 / span 1; }
+  .triangle-grid > a:nth-child(16) { grid-column: 5 / span 1; }
+  .triangle-grid > a:nth-child(17) { grid-column: 7 / span 1; }
+  .triangle-grid > a:nth-child(18) { grid-column: 2 / span 1; }
+  .triangle-grid > a:nth-child(19) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(20) { grid-column: 6 / span 1; }
+  .triangle-grid > a:nth-child(21) { grid-column: 4 / span 1; }
+}
+
+@media (max-width: 480px) {
+  #languages {
+    padding: 4rem 0.5rem;
+  }
+  
+  .triangle-grid {
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 80px;
+    gap: 0.75rem;
+  }
+  
+  .language-logo img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Extra small mobile - simple grid */
+  .triangle-grid > a:nth-child(1) { grid-column: 3 / span 1; }
+  .triangle-grid > a:nth-child(2) { grid-column: 2 / span 1; }
+  .triangle-grid > a:nth-child(3) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(4) { grid-column: 1 / span 1; }
+  .triangle-grid > a:nth-child(5) { grid-column: 3 / span 1; }
+  .triangle-grid > a:nth-child(6) { grid-column: 5 / span 1; }
+  .triangle-grid > a:nth-child(7) { grid-column: 2 / span 1; }
+  .triangle-grid > a:nth-child(8) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(9) { grid-column: 1 / span 1; }
+  .triangle-grid > a:nth-child(10) { grid-column: 3 / span 1; }
+  .triangle-grid > a:nth-child(11) { grid-column: 5 / span 1; }
+  .triangle-grid > a:nth-child(12) { grid-column: 2 / span 1; }
+  .triangle-grid > a:nth-child(13) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(14) { grid-column: 1 / span 1; }
+  .triangle-grid > a:nth-child(15) { grid-column: 3 / span 1; }
+  .triangle-grid > a:nth-child(16) { grid-column: 5 / span 1; }
+  .triangle-grid > a:nth-child(17) { grid-column: 2 / span 1; }
+  .triangle-grid > a:nth-child(18) { grid-column: 4 / span 1; }
+  .triangle-grid > a:nth-child(19) { grid-column: 1 / span 1; }
+  .triangle-grid > a:nth-child(20) { grid-column: 5 / span 1; }
+  .triangle-grid > a:nth-child(21) { grid-column: 3 / span 1; }
+}
+
+/* Ensure section doesn't overlap with others */
+#languages + section {
+  margin-top: 0;
+  padding-top: 5rem;
+}
+
+/* Add breathing room around the section */
+#languages {
+  margin: 2rem 0;
+}
+
+/* Title spacing */
+#languages h2 {
+  margin-bottom: 4rem; /* Increased from 3rem */
+  padding-top: 2rem;
+}
+
+/* Smooth transitions for all interactions */
+.language-logo,
+.language-logo img {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Add subtle background pattern */
+#languages::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 179, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(0, 255, 234, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ensure content is above background pattern */
+#languages > div {
+  position: relative;
+  z-index: 2;
+}
+
+
+    /* Projects timeline */
+    #projects {
+      position: relative;
+      min-height: 900px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    #projects .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #22d3ee;
+      opacity: 0.4;
+      border-radius: 1px;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    #projects .connector-circle {
+      position: absolute;
+      left: 50%;
+      width: 2rem;
+      height: 2rem;
+      background: #22d3ee;
+      border-radius: 50%;
+      border: 4px solid #000;
+      box-shadow: 0 0 10px #22d3ee;
+      transform: translateX(-50%);
+      z-index: 20;
+    }
+    #projects .project-card {
+      max-width: 48rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      color: #cbd5e1;
+      user-select: none;
+    }
+    #projects .project-card img {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 1rem;
+      border: 4px solid #22d3ee;
+      box-shadow: 0 0 10px #22d3ee;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    #projects .project-card img:hover,
+    #projects .project-card img:focus-visible {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00ffeaa7;
+      outline: none;
+    }
+    #projects .project-content {
+      max-width: 30rem;
+    }
+    #projects .project-content h3 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00ffea8e, #00b3ff, #00ffeaa3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+      user-select: none;
+    }
+    #projects .project-content p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    #projects .project-buttons a {
+      margin-right: 1rem;
+    }
+
+    /* Certification cards */
+    #certifications .cert-card {
+      background: rgba(255 255 255 / 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    #certifications .cert-card:hover,
+    #certifications .cert-card:focus-visible {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #22d3ee;
+      outline: none;
+    }
+    #certifications .cert-card img {
+      max-width: 10rem;
+      max-height: 10rem;
+      object-fit: contain;
+      border-radius: 1rem;
+      user-select: none;
+    }
+    #certifications .cert-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+      user-select: none;
+    }
+    #certifications .cert-card p {
+      font-size: 0.875rem;
+      color: #22d3ee;
+      margin: 0;
+      user-select: none;
+    }
+
+    /* Contact section */
+    #contact ul li a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #22d3ee;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+    #contact ul li a:hover,
+    #contact ul li a:focus-visible {
+      color: #00ffeaa7;
+      outline: none;
+    }
+    #contact svg {
+      flex-shrink: 0;
+    }
+
+    /* Back to top button */
+    #backToTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #22d3ee;
+      color: #000;
+      border: none;
+      border-radius: 9999px;
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 10px #22d3ee;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 100;
+    }
+    #backToTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Dark mode toggle */
+    #darkModeToggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #22d3ee;
+      border: none;
+      border-radius: 9999px;
+      padding: 0.5rem 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 10px #22d3ee;
+      color: #000;
+      z-index: 100;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    #darkModeToggle:hover,
+    #darkModeToggle:focus-visible {
+      background-color: #00ffeaa7;
+      outline: none;
+    }
+
+    /* Focus outline for accessibility */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid #22d3ee;
+      outline-offset: 2px;
+    }
+    /* Add smooth scrolling between sections
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+/* Make each major section snap to viewport */
+/* section {
+  scroll-snap-align: start;
+} */
+
+/* Ensure proper spacing between sections */
+/* section:not(#hero) {
+  margin-top: 0;
+  padding-top: 5rem;
+} */ */
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <!-- Update your navigation header -->
+<header class="bg-black bg-opacity-90 fixed top-0 left-0 right-0 z-50 shadow-lg border-b border-cyan-600/50 backdrop-blur-md" role="banner">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center" aria-label="Primary navigation">
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center space-x-3 focus-visible:ring-2 focus-visible:ring-cyan-400" aria-label="Go to hero section">
+      <img src="Images/1.png" alt="Niranga Logo" class="logo-img" loading="lazy" />
+      <span class="text-2xl font-extrabold text-gradient select-none">Niranga Nayanajith</span>
+    </a>
+    <!-- Navigation Links -->
+    <div class="hidden md:flex space-x-10 text-lg font-semibold tracking-wide">
+      <a href="#about" class="text-slate-300 hover:text-gradient transition-colors focus-visible:ring-2 focus-visible:ring-cyan-400">About</a>
+      <a href="#languages" class="text-slate-300 hover:text-gradient transition-colors focus-visible:ring-2 focus-visible:ring-cyan-400">Skills</a>
+      <a href="#projects" class="text-slate-300 hover:text-gradient transition-colors focus-visible:ring-2 focus-visible:ring-cyan-400">Projects</a>
+      <a href="#certifications" class="text-slate-300 hover:text-gradient transition-colors focus-visible:ring-2 focus-visible:ring-cyan-400">Certifications</a>
+      <a href="#contact" class="text-slate-300 hover:text-gradient transition-colors focus-visible:ring-2 focus-visible:ring-cyan-400">Contact</a>
+    </div>
+  </nav>
+</header>
+
+
+  <!-- Hero Section -->
+  <!-- Hero Section - Full Viewport -->
+<section id="hero" class="relative h-screen w-full flex items-center justify-center text-center overflow-hidden" role="region" aria-label="Introduction">
+  <!-- SVG Background Container -->
+  <object 
+    data="https://cdn.svgator.com/images/2021/10/solar-system-animation-1.svg" 
+    type="image/svg+xml"
+    class="absolute inset-0 w-full h-full opacity-30 mix-blend-screen pointer-events-none -z-10"
+    aria-hidden="true">
+  </object>
+  <!-- Overlay for better text contrast -->
+  <div class="absolute inset-0 bg-black bg-opacity-70 -z-10"></div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 max-w-5xl mx-auto px-6 sm:px-12 lg:px-20">
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tight mb-6">
+      Hello, I'm <br><span class="text-gradient">Niranga Nayanajith</span>
+    </h1>
+    <p class="text-xl md:text-2xl lg:text-3xl text-slate-400 font-medium max-w-3xl mx-auto mb-6">
+      A Developer & Cybersecurity Enthusiast
+    </p>
+    <p class="text-lg md:text-xl text-slate-400 max-w-4xl mx-auto leading-relaxed mb-10">
+      I am currently an undergraduate at the Faculty of Computing, Sabaragamuwa University of Sri Lanka, with a passion for building innovative software and exploring the depths of cybersecurity.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+      <a href="#about" class="btn-neon" aria-label="View my projects">
+        View My Work
+      </a>
+      <a href="#contact" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold py-3 px-8 rounded-full transition-all shadow-md focus-visible:ring-2 focus-visible:ring-cyan-400" aria-label="Contact me">
+        Get In Touch
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll Down Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+    <div class="animate-bounce">
+      <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+    <p class="text-cyan-400 text-sm mt-2">Scroll Down</p>
+  </div>
+</section>
+
+
+  <section id="about" class="relative bg-gradient-to-b from-black via-gray-900 to-black py-20 px-6 sm:px-12 lg:px-20 overflow-hidden">
+  <!-- Use object instead of img for animated SVG -->
+  <object 
+    data="https://cdn.svgator.com/images/2021/10/animated-astronaut-illustration.svg" 
+    type="image/svg+xml"
+    class="object-svg"
+    aria-hidden="true"
+    style="position: absolute; top: 50%; left: 50%; width: 120%; height: auto; max-height: 100%; transform: translate(-50%, -50%); opacity: 0.2; pointer-events: none; z-index: 1;">
+  </object>
+
+    <div class="max-w-7xl mx-auto md:flex md:items-center md:space-x-16 relative z-10">
+      <div class="md:w-1/2 text-slate-300">
+        <h2 class="text-4xl font-extrabold mb-8 text-gradient">About Me</h2>
+        <p class="mb-6 leading-relaxed text-lg">
+          I am a dedicated and results-driven undergraduate student at the Faculty of Computing, Sabaragamuwa University of Sri Lanka. My academic journey has equipped me with a strong foundation in computer science principles.
+        </p>
+        <p class="leading-relaxed text-lg">
+          As a <span class="font-semibold text-gradient">developer</span>, I specialize in creating robust and efficient software solutions. My skills include front-end and back-end development, and I am always eager to learn new technologies. As a <span class="font-semibold text-gradient">cybersecurity enthusiast</span>, I have a keen interest in network security, ethical hacking, and data protection, continuously working to understand and defend against digital threats.
+        </p>
+      </div>
+      <div class="md:w-1/2 flex justify-center mt-12 md:mt-0">
+        <img src="Images/2.jpg" alt="Niranga Nayanajith profile photo" class="profile-img w-64 h-64 object-cover" loading="lazy" tabindex="0" />
+      </div>
+    </div>
+  </section>
+
+  <section id="languages" class="relative bg-gradient-to-b from-black via-gray-900 to-black py-32 px-6 sm:px-12 lg:px-20 overflow-hidden min-h-screen" role="region" aria-label="Programming languages and technologies">
+  <!-- SVG Background -->
+  <object
+    data="https://cdn.svgator.com/images/2021/10/space-robot-animation.svg"
+    type="image/svg+xml"
+    class="absolute top-1/2 left-1/2 opacity-10 pointer-events-none z-0"
+    style="width: 120%; height: auto; max-height: 100%; transform: translate(-50%, -50%);"
+    aria-hidden="true">
+  </object>
+  <div class="absolute inset-0 bg-black bg-opacity-60 -z-10"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10 text-center">
+    <h2 class="text-4xl font-extrabold text-gradient mb-20">Languages & Technologies</h2>
+    
+    <!-- Triangle Grid with More Space -->
+    <div class="triangle-grid-container">
+      <div class="triangle-grid max-w-6xl mx-auto" role="list" aria-label="Programming languages and technologies">
+        <!-- Language icons -->
+        <a href="https://ballerina.io/" target="_blank" rel="noopener noreferrer" class="language-logo" title="Ballerina" role="listitem" aria-label="Ballerina programming language">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ballerina/ballerina-original.svg" alt="Ballerina" loading="lazy" />
+        </a>
+        <a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer" class="language-logo" title="Bootstrap" role="listitem" aria-label="Bootstrap CSS framework">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="Bootstrap" loading="lazy" />
+        </a>
+        <a href="https://www.cprogramming.com/" target="_blank" rel="noopener noreferrer" class="language-logo" title="C" role="listitem" aria-label="C programming language">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C" loading="lazy" />
+        </a>
+        <a href="https://www.w3schools.com/cs/" target="_blank" rel="noopener noreferrer" class="language-logo" title="C#" role="listitem" aria-label="C# programming language">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="C#" loading="lazy" />
+        </a>
+        <a href="https://www.w3schools.com/css/" target="_blank" rel="noopener noreferrer" class="language-logo" title="CSS3" role="listitem" aria-label="CSS3 styling language">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS3" loading="lazy" />
+        </a>
+        <a href="https://dart.dev" target="_blank" rel="noopener noreferrer" class="language-logo" title="Dart" role="listitem" aria-label="Dart programming language">
+          <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="Dart" loading="lazy" />
+        </a>
+        <a href="https://dotnet.microsoft.com/" target="_blank" rel="noopener noreferrer" class="language-logo" title=".NET" role="listitem" aria-label="Microsoft .NET framework">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt=".NET" loading="lazy" />
+        </a>
+        <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer" class="language-logo" title="Figma" role="listitem" aria-label="Figma design tool">
+          <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma" loading="lazy" />
+        </a>
+        <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer" class="language-logo" title="Firebase" role="listitem" aria-label="Google Firebase platform">
+          <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="Firebase" loading="lazy" />
+        </a>
+        <a href="https://www.python.org" target="_blank" rel="noopener noreferrer" class="language-logo" title="Python" role="listitem" aria-label="Python programming language">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" loading="lazy" />
+        </a>
+        <a href="https://flutter.dev" target="_blank" rel="noopener noreferrer" class="language-logo" title="Flutter" role="listitem" aria-label="Flutter mobile framework">
+          <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="Flutter" loading="lazy" />
+        </a>
+        <a href="https://cloud.google.com" target="_blank" rel="noopener noreferrer" class="language-logo" title="Google Cloud Platform" role="listitem" aria-label="Google Cloud Platform">
+          <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="Google Cloud Platform" loading="lazy" />
+        </a>
+        <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" class="language-logo" title="Git" role="listitem" aria-label="Git version control">
+          <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git" loading="lazy" />
+        </a>
+        <a href="https://heroku.com" target="_blank" rel="noopener noreferrer" class="language-logo" title="Heroku" role="listitem" aria-label="Heroku cloud platform">
+          <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="Heroku" loading="lazy" />
+        </a>
+        <a href="https://www.w3.org/html/" target="_blank" rel="noopener noreferrer" class="language-logo" title="HTML5" role="listitem" aria-label="HTML5 markup language">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML5" loading="lazy" />
+        </a>
+        <a href="https://www.java.com" target="_blank" rel="noopener noreferrer" class="language-logo" title="Java" role="listitem" aria-label="Java programming language">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" loading="lazy" />
+        </a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" class="language-logo" title="JavaScript" role="listitem" aria-label="JavaScript programming language">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy" />
+        </a>
+        <a href="https://www.linux.org/" target="_blank" rel="noopener noreferrer" class="language-logo" title="Linux" role="listitem" aria-label="Linux operating system">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" loading="lazy" />
+        </a>
+        <a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer" class="language-logo" title="MongoDB" role="listitem" aria-label="MongoDB database">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB" loading="lazy" />
+        </a>
+        <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer" class="language-logo" title="MySQL" role="listitem" aria-label="MySQL database">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="MySQL" loading="lazy" />
+        </a>
+        <a href="https://nodejs.org" target="_blank" rel="noopener noreferrer" class="language-logo" title="Node.js" role="listitem" aria-label="Node.js runtime environment">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="relative py-20 px-6 sm:px-12 lg:px-20 bg-black overflow-hidden" role="region" aria-label="My projects" style="background-image: url('https://cdn.svgator.com/images/2021/10/animated-background-space.svg'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+    <!-- Semi-transparent overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-70 -z-10"></div>
+    
+    <div class="max-w-5xl mx-auto relative z-10">
+      <h2 class="text-4xl font-extrabold text-gradient text-center mb-16">My Projects</h2>
+
+      <div class="space-y-32 relative">
+        <!-- Timeline line -->
+        <div class="timeline-line"></div>
+
+        <!-- Project 1 -->
+        <div class="relative flex justify-start items-center">
+          <div class="connector-circle"></div>
+          <div class="project-card">
+            <img src="Images/485267712-dc8c6bb1-a1d1-484f-b4ca-2fa17a3f1e1a.png" alt="Webify.me project screenshot" loading="lazy" tabindex="0" />
+            <div class="project-content text-left">
+              <h3>Webify.me</h3>
+              <p>A full-stack web application designed to solve a common problem: the time and effort required to create professional presentations. By simply providing a topic, our application uses AI to generate a complete presentation, which can then be customized in a real-time, interactive editor.</p>
+              <div class="project-buttons">
+                <a href="https://webifyme.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View Webify.me live site">Live Site</a>
+                <a href="https://github.com/nngeek195/webify.me" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View Webify.me source code on GitHub">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="relative flex justify-end items-center">
+          <div class="connector-circle"></div>
+          <div class="project-card justify-end">
+            <div class="project-content text-right">
+                            <h3>SinhalaUnicodes</h3>
+              <p>An exe file to translate singlish to Sinhala and singlish to legacy quickly. A simple and fun application built with .Net framework.</p>
+              <div class="project-buttons flex justify-end">
+                <a href="https://drive.google.com/file/d/15ekx8bo5uXdOuZ8T6h4YPwzjyV8S3viO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="Download SinhalaUnicodes executable">Download EXE</a>
+                <a href="https://github.com/nngeek195/SinhalaUnicodes" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View SinhalaUnicodes source code on GitHub">GitHub</a>
+              </div>
+            </div>
+            <img src="Images/U N I C O D E (1).png" alt="SinhalaUnicodes application screenshot" loading="lazy" tabindex="0" />
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="relative flex justify-start items-center">
+          <div class="connector-circle"></div>
+          <div class="project-card">
+            <img src="Images/U N I C O D E (1) - Copy.png" alt="SinhalaUnicodes Web application screenshot" loading="lazy" tabindex="0" />
+            <div class="project-content text-left">
+              <h3>SinhalaUnicodes Web</h3>
+              <p>A fully functional website to translate singlish to Sinhala and singlish to legacy quickly, built with .Net framework.</p>
+              <div class="project-buttons">
+                <a href="https://sinhalaunicodes.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View SinhalaUnicodes Web live site">Live Site</a>
+                <a href="https://github.com/nngeek195/SinhalaUnicodes" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View SinhalaUnicodes Web source code on GitHub">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="relative flex justify-end items-center">
+          <div class="connector-circle"></div>
+          <div class="project-card justify-end">
+            <div class="project-content text-right">
+              <h3>PDF-Combiner</h3>
+              <p>A lightweight and user-friendly desktop application built in Python to merge multiple PDF files into a single document effortlessly.</p>
+              <div class="project-buttons flex justify-end">
+                <a href="https://github.com/nngeek195/PDF-Combiner" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View PDF-Combiner source code on GitHub">GitHub</a>
+              </div>
+            </div>
+            <img src="Images/442524521-95ebf266-c02e-499e-a23a-37e760ac97d1.png" alt="PDF-Combiner application screenshot" loading="lazy" tabindex="0" />
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="relative flex justify-start items-center">
+          <div class="connector-circle"></div>
+          <div class="project-card">
+            <img src="Images/412963140-5c88ee67-4511-4fd3-a012-59d2d369d4ab.png" alt="Telegram G-Drive Bot screenshot" loading="lazy" tabindex="0" />
+            <div class="project-content text-left">
+              <h3>Telegram G-Drive Bot</h3>
+              <p>A Telegram bot designed to integrate and upload Telegram documents to Google Drive. Create a public folder and provide it to the bot to enjoy seamless uploads.</p>
+              <div class="project-buttons">
+                <a href="https://github.com/nngeek195/Telagram-G-Drive-Bot" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View Telegram G-Drive Bot source code on GitHub">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="relative flex justify-end items-center">
+          <div class="connector-circle"></div>
+          <div class="project-card justify-end">
+            <div class="project-content text-right">
+              <h3>Hora Pusa AI</h3>
+              <p>An algorithm system to detect animals and their skin tones using haarcascade_frontalcatface.xml as the main character.</p>
+              <div class="project-buttons flex justify-end">
+                <a href="https://github.com/nngeek195/hora_pusa_ai" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View Hora Pusa AI source code on GitHub">GitHub</a>
+              </div>
+            </div>
+            <img src="Images/408955734-deb7fb43-70a7-4bd4-9178-e69ea6843ca6.png" alt="Hora Pusa AI application screenshot" loading="lazy" tabindex="0" />
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="relative flex justify-start items-center">
+          <div class="connector-circle"></div>
+          <div class="project-card">
+            <img src="Images/408971133-5f06d0e8-f84f-4c20-b6d0-74ddc4f78f98.png" alt="Voice Assistant application screenshot" loading="lazy" tabindex="0" />
+            <div class="project-content text-left">
+              <h3>Voice Assistant</h3>
+              <p>The second stage of my virtual mouse project, adding cool voice assistance features.</p>
+              <div class="project-buttons">
+                <a href="https://github.com/nngeek195/my_first_voice_asiistant" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View Voice Assistant source code on GitHub">GitHub</a>
+                <a href="https://github.com/nngeek195/Virtual-mouse" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View Virtual Mouse project source code on GitHub">Virtual Mouse</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="relative flex justify-end items-center">
+          <div class="connector-circle"></div>
+          <div class="project-card justify-end">
+            <div class="project-content text-right">
+              <h3>Mobile Mouse</h3>
+              <p>A fully functional Python-based application that allows users to control their PCs using any mobile device, with no app installation required.</p>
+              <div class="project-buttons flex justify-end">
+                <a href="https://github.com/nngeek195/mobile_mouse" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View Mobile Mouse source code on GitHub">GitHub</a>
+              </div>
+            </div>
+            <img src="Images/408963457-63add632-5fd2-4fb8-9cc0-81d2403e4699.png" alt="Mobile Mouse application screenshot" loading="lazy" tabindex="0" />
+          </div>
+        </div>
+
+        <!-- Project 9 -->
+        <div class="relative flex justify-start items-center">
+          <div class="connector-circle"></div>
+          <div class="project-card">
+            <img src="Images/408955734-deb7fb43-70a7-4bd4-9178-e69ea6843ca6.png" alt="2N Share application screenshot" loading="lazy" tabindex="0" />
+            <div class="project-content text-left">
+              <h3>2N Share</h3>
+              <p>A lightweight Python-based file sharing application, a simple alternative to ShareIt, with no mobile app required.</p>
+              <div class="project-buttons">
+                <a href="https://github.com/nngeek195/file_share_exe" target="_blank" rel="noopener noreferrer" class="btn-neon" aria-label="View 2N Share source code on GitHub">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="relative py-20 px-6 sm:px-12 lg:px-20 bg-black min-h-[900px] overflow-hidden">
+  <!-- Use object for animated SVG -->
+  <object
+    data="https://cdn.svgator.com/images/2021/10/astronomy-animation-trend.svg"
+    type="image/svg+xml"
+    class="absolute inset-0 w-full h-full opacity-25 pointer-events-none z-0"
+    style="object-fit: cover;"
+    aria-hidden="true">
+  </object>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+      <h2 class="text-4xl font-extrabold text-gradient text-center mb-16">Certifications</h2>
+      <div id="certifications-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" role="list" aria-label="Professional certifications">
+        <!-- Certification cards will be inserted by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="relative flex flex-col lg:flex-row items-center justify-center min-h-screen bg-black px-6 sm:px-12 lg:px-20 py-20 gap-16" role="region" aria-label="Contact information">
+    <!-- Left side: Contact info -->
+    <div class="flex-1 max-w-xl text-white">
+      <h2 class="text-5xl font-extrabold text-gradient mb-8">Connect With Me</h2>
+      <p class="mb-12 text-lg text-cyan-300 max-w-md">
+        Feel free to reach out to me on any of the platforms below. I'm always open to new opportunities, collaborations, or just a friendly chat!
+      </p>
+
+      <ul class="space-y-8" role="list" aria-label="Social media and professional profiles">
+        <!-- LinkedIn -->
+        <li role="listitem">
+          <a href="https://www.linkedin.com/in/niranga-nayanajith-548a0a302" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn">
+            <svg class="w-8 h-8 text-cyan-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.061-1.865-3.061-1.865 0-2.151 1.456-2.151 2.961v5.704h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.562 2.838-1.562 3.036 0 3.6 2 3.6 4.59v5.605z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </li>
+
+        <!-- GitHub -->
+        <li role="listitem">
+          <a href="https://github.com/nngeek195" target="_blank" rel="noopener noreferrer" aria-label="View my projects on GitHub">
+            <svg class="w-8 h-8 text-cyan-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.372 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605-2.665-.3-5.466-1.335-5.466-5.933 0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.243 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.63-5.48 5.922.43.37.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+        </li>
+
+        <!-- HackerRank -->
+        <li role="listitem">
+          <a href="https://www.hackerrank.com/profile/nngeek195" target="_blank" rel="noopener noreferrer" aria-label="View my HackerRank profile">
+            <svg class="w-8 h-8 text-cyan-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0L1.605 6v12L12 24l10.395-6V6L12 0zm7.5 16.5-7.5 4.5-7.5-4.5V7.5l7.5-4.5 7.5 4.5v9z"/>
+              <path d="M12 3.75 5.25 7.5v9l6.75 3.75 6.75-3.75v-9L12 3.75z" fill="#fff"/>
+            </svg>
+            <span>HackerRank</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- Right side: Animated Robot SVG -->
+  <div class="flex-1 max-w-lg relative z-10">
+    <object
+      data="https://cdn.svgator.com/images/2021/10/Robot-morph-icon.svg"
+      type="image/svg+xml"
+      class="w-full max-w-md mx-auto select-none"
+      style="height: 400px;"
+      aria-hidden="true">
+      <!-- Fallback image if object fails -->
+      <img src="https://cdn.svgator.com/images/2021/10/Robot-morph-icon.svg" alt="Robot illustration" class="w-full max-w-md mx-auto" />
+    </object>
+  </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black bg-opacity-90 py-8 text-center text-slate-400 text-sm border-t border-cyan-600/40 backdrop-blur-sm" role="contentinfo">
+    <p class="font-light">&copy; 2024 Niranga Nayanajith. All rights reserved.</p>
+    <p class="mt-2 font-light flex items-center justify-center gap-2 text-cyan-400">
+      Built with 
+      <img src="Images/1.png" alt="Niranga Logo" class="logo-img" loading="lazy" />
+      & passion
+    </p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // Certifications data
+    const certifications = [
+      {
+        title: "Networking Basics",
+        issuer: "Cisco Networking Academy",
+        issued: "Jan 2025",
+        link: "https://www.credly.com/badges/46b2283d-4e9e-4eb4-a797-85e0a975dd99/public_url",
+        img: "https://images.credly.com/size/680x680/images/5bdd6a39-3e03-4444-9510-ecff80c9ce79/image.png"
+      },
+      {
+        title: "SQL Injection",
+        issuer: "Simplilearn",
+        issued: "Dec 2024",
+        link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIyNDM3IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvNzY3NTM5OV83ODE1NjMwMTczNDM0Njk3NjQxMS5wbmciLCJ1c2VybmFtZSI6Ik5pcmFuZ2EgTmF5YW5haml0aCJ9&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F5141%2FSQL-Injection-For-Beginners%2Fcertificate%2Fdownload-skillup&%24web_only=true",
+        img: "https://certificates.simplicdn.net/share/7675399_78156301734346976411.png"
+      },
+      {
+        title: "Ethical Hacking - Mobile Platforms and Network Architecture",
+        issuer: "Great Learning",
+        issued: "Nov 2024",
+        link: "https://www.mygreatlearning.com/certificate/AVUFKFYY",
+        img: "https://d9jmtjs5r4cgq.cloudfront.net/ComplementaryCourseCertificate/5731008/original/K.H.A.Niranga_Nayanajith20241124-72-15z1wm.jpg"
+      },
+      {
+        title: "Innovate with Ballerina Coding Challenge",
+        issuer: "WSO2",
+        issued: "Nov 2024",
+        link: "https://certificates.ballerina.io/IWB24P-sRi3bCQYAy",
+        img: "Images/qq.jpg"
+      },
+      {
+        title: "Introduction to Cyber Crime",
+        issuer: "Great Learning",
+        issued: "Nov 2024",
+        link: "https://www.mygreatlearning.com/certificate/PGAZALGR",
+        img: "https://d9jmtjs5r4cgq.cloudfront.net/ComplementaryCourseCertificate/5691125/original/K.H.A.Niranga_Nayanajith20241118-75-ddrt4a.jpg"
+      },
+      {
+        title: "Introduction to Cyber Security",
+        issuer: "Great Learning",
+        issued: "Nov 2024",
+        link: "https://www.mygreatlearning.com/certificate/OFTDRZTK",
+        img: "https://d9jmtjs5r4cgq.cloudfront.net/ComplementaryCourseCertificate/5697763/original/K.H.A.Niranga_Nayanajith20241119-74-qqnrvz.jpg"
+      },
+      {
+        title: "Introduction to Ethical Hacking",
+        issuer: "Great Learning",
+        issued: "Nov 2024",
+        link: "https://www.mygreatlearning.com/certificate/FPPLCLCG",
+        img: "https://d9jmtjs5r4cgq.cloudfront.net/ComplementaryCourseCertificate/5726561/original/K.H.A.Niranga_Nayanajith20241123-73-1f7cdxy.jpg"
+      },
+      {
+        title: "MoraXtreame Hackerthon",
+        issuer: "IEEE Student Branch University of Moratuwa",
+        issued: "Nov 2024",
+        link: "https://drive.google.com/file/d/1WXikJOCaKOf7FNVSX-HtMmynb2PVF1NX/view",
+        img: "Images/q.jpg"
+      },
+      {
+        title: "Introduction to Programming Using Python",
+        issuer: "Kaggle",
+        issued: "Aug 2024",
+        link: "https://www.kaggle.com/learn/certification/nngeek/python",
+        img: "Images/ss.png"
+      },
+      {
+        title: "Responsive Web Design",
+        issuer: "freeCodeCamp",
+        issued: "Aug 2024",
+        link: "https://freecodecamp.org/certification/fcc4441a823-f4dd-41a2-882a-0deefbb51731/responsive-web-design",
+        img: "Images/fre.jpeg"
+      },
+      {
+        title: "Basic In Python",
+        issuer: "HackerRank",
+        issued: "Jun 2024",
+        link: "https://www.hackerrank.com/certificates/iframe/705d0f988340",
+        img: "Images/me.jpg"
+      },
+      {
+        title: "Introduction to Programming",
+        issuer: "Kaggle",
+        issued: "",
+        link: "https://www.kaggle.com/learn/certification/nngeek/intro-to-programming",
+        img: "Images/we.png"
+      }
+    ];
+
+    // Render certifications
+    function renderCertifications() {
+      const gridContainer = document.getElementById('certifications-grid');
+      
+      certifications.forEach((cert, index) => {
+        const card = document.createElement('a');
+        card.href = cert.link;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+        card.className = "cert-card";
+        card.setAttribute('role', 'listitem');
+        card.setAttribute('aria-label', `${cert.title} certification from ${cert.issuer}`);
+
+        // Image container
+        const imgContainer = document.createElement('div');
+        imgContainer.className = "w-40 h-40 bg-white bg-opacity-20 rounded-xl flex items-center justify-center overflow-hidden";
+
+        const img = document.createElement('img');
+        img.src = cert.img;
+        img.alt = `${cert.title} certification badge`;
+        img.className = "max-w-full max-h-full object-contain";
+        img.loading = "lazy";
+        imgContainer.appendChild(img);
+
+        // Title
+        const title = document.createElement('h3');
+        title.textContent = cert.title;
+
+        // Issuer and date
+        const issuer = document.createElement('p');
+        issuer.textContent = cert.issuer + (cert.issued ? ` • Issued ${cert.issued}` : "");
+
+        card.appendChild(imgContainer);
+        card.appendChild(title);
+        card.appendChild(issuer);
+        gridContainer.appendChild(card);
+      });
+    }
+
+    // Dark mode toggle functionality
+    function initDarkModeToggle() {
+      const toggleBtn = document.getElementById('darkModeToggle');
+      const html = document.documentElement;
+      
+      let isDark = true; // Default is dark mode
+      
+      toggleBtn.addEventListener('click', () => {
+        isDark = !isDark;
+        
+        if (isDark) {
+          html.setAttribute('data-theme', 'dark');
+          document.body.style.background = '#0a0a0a';
+          document.body.style.color = '#cbd5e1';
+          toggleBtn.textContent = 'Light Mode';
+        } else {
+          html.setAttribute('data-theme', 'light');
+          document.body.style.background = '#f8fafc';
+          document.body.style.color = '#1e293b';
+          toggleBtn.textContent = 'Dark Mode';
+        }
+      });
+    }
+
+    // Back to top button functionality
+    function initBackToTop() {
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add('show');
+        } else {
+          backToTopBtn.classList.remove('show');
+        }
+      });
+      
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+
+    // Smooth scroll for anchor links
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    }
+
+    // GSAP Animations
+    function initAnimations() {
+      if (typeof gsap === 'undefined') {
+        console.warn('GSAP not loaded, skipping animations');
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Section Animation
+      gsap.from("#hero h1", {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        ease: "power3.out",
+      });
+
+      gsap.from("#hero p", {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        delay: 0.5,
+        stagger: 0.3,
+        ease: "power3.out",
+      });
+
+      gsap.from("#hero .btn-neon, #hero a[href='#contact']", {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.8,
+        delay: 1.2,
+        ease: "back.out(1.7)",
+        stagger: 0.2,
+      });
+
+      // About Section Animation
+      gsap.from("#about h2", {
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 80%",
+        },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from("#about p", {
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 75%",
+        },
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        delay: 0.3,
+        stagger: 0.3,
+        ease: "power3.out",
+      });
+
+      gsap.from(".profile-img", {
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top 80%",
+        },
+        opacity: 0,
+        x: 100,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+      });
+
+      // Languages Section Animation
+      gsap.from("#languages h2", {
+        scrollTrigger: {
+          trigger: "#languages",
+          start: "top 80%",
+        },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from(".language-logo", {
+        scrollTrigger: {
+          trigger: "#languages",
+          start: "top 70%",
+        },
+        opacity: 0,
+        scale: 0.5,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "back.out(1.7)",
+      });
+
+      // Projects Section Animation
+      gsap.from("#projects h2", {
+        scrollTrigger: {
+          trigger: "#projects",
+          start: "top 80%",
+        },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.utils.toArray("#projects .project-card").forEach((card, i) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+          },
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          delay: i * 0.1,
+          ease: "power3.out",
+        });
+      });
+
+      // Certifications Section Animation
+      gsap.from("#certifications h2", {
+        scrollTrigger: {
+          trigger: "#certifications",
+          start: "top 80%",
+        },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from(".cert-card", {
+        scrollTrigger: {
+          trigger: "#certifications",
+          start: "top 70%",
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+      });
+
+      // Contact Section Animation
+      gsap.from("#contact h2", {
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top 80%",
+        },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from("#contact p", {
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top 75%",
+        },
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+      });
+      gsap.from("#contact ul li", {
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top 75%",
+        },
+        opacity: 0,
+        x: -50,
+        duration: 0.8,
+        delay: 0.6,
+        stagger: 0.2,
+        ease: "power3.out",
+      });
+
+      gsap.from("#contact .flex-1:last-child img", {
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top 75%",
+        },
+        opacity: 0,
+        scale: 0.8,
+        duration: 1,
+        delay: 0.8,
+        ease: "back.out(1.7)",
+      });
+    }
+
+    // Error handling for images
+    function handleImageErrors() {
+      document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+          console.warn(`Failed to load image: ${this.src}`);
+          // You could set a fallback image here
+          // this.src = 'Images/fallback.png';
+        });
+      });
+    }
+
+    // Keyboard navigation enhancement
+    function enhanceKeyboardNavigation() {
+      // Add keyboard support for interactive elements
+      document.querySelectorAll('.language-logo, .profile-img, .project-card img').forEach(element => {
+        element.setAttribute('tabindex', '0');
+        
+        element.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (this.tagName === 'A') {
+              this.click();
+            } else if (this.tagName === 'IMG') {
+              // Trigger hover effect or focus state
+              this.focus();
+            }
+          }
+        });
+      });
+    }
+
+    // Performance optimization: Intersection Observer for lazy animations
+    function initIntersectionObserver() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, observerOptions);
+
+      // Observe sections for performance
+      document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+      });
+    }
+
+    // Mobile menu toggle (for future mobile navigation)
+    function initMobileMenu() {
+      // This can be expanded for mobile hamburger menu
+      const nav = document.querySelector('nav');
+      
+      // Add mobile-friendly touch events
+      if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+      }
+    }
+
+    // Initialize all functionality when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Core functionality
+      renderCertifications();
+      initDarkModeToggle();
+      initBackToTop();
+      initSmoothScroll();
+      handleImageErrors();
+      enhanceKeyboardNavigation();
+      initIntersectionObserver();
+      initMobileMenu();
+      
+      // Initialize animations after a short delay to ensure GSAP is loaded
+      setTimeout(initAnimations, 100);
+    });
+
+    // Handle window resize for responsive adjustments
+    window.addEventListener('resize', function() {
+      // Refresh ScrollTrigger on resize if GSAP is available
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    });
+
+    // Service Worker registration for PWA capabilities (optional)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('ServiceWorker registration successful');
+          })
+          .catch(function(err) {
+            console.log('ServiceWorker registration failed');
+          });
+      });
+    }
+
+    // Analytics tracking (placeholder for Google Analytics or similar)
+    function trackEvent(eventName, eventData) {
+      // Placeholder for analytics tracking
+      console.log(`Event tracked: ${eventName}`, eventData);
+      
+      // Example: Google Analytics 4
+      // if (typeof gtag !== 'undefined') {
+      //   gtag('event', eventName, eventData);
+      // }
+    }
+
+    // Track important user interactions
+    document.addEventListener('click', function(e) {
+      if (e.target.matches('.btn-neon')) {
+        trackEvent('button_click', {
+          button_text: e.target.textContent,
+          button_location: e.target.closest('section')?.id || 'unknown'
+        });
+      }
+      
+      if (e.target.matches('a[href^="http"]')) {
+        trackEvent('external_link_click', {
+          link_url: e.target.href,
+          link_text: e.target.textContent
+        });
+      }
+    });
+
+    // Console welcome message
+    console.log(`
+    🚀 Welcome to Niranga Nayanajith's Portfolio!
+    
+    Built with:
+    - HTML5 & CSS3
+    - Tailwind CSS
+    - GSAP Animations
+    - Vanilla JavaScript
+    
+    Feel free to explore the code and reach out if you have any questions!
+    
+    GitHub: https://github.com/nngeek195
+    LinkedIn: https://www.linkedin.com/in/niranga-nayanajith-548a0a302
+    `);
+  </script>
+
+  <!-- Optional: Add structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Niranga Nayanajith",
+    "jobTitle": "Developer & Cybersecurity Enthusiast",
+    "description": "Undergraduate student at Faculty of Computing, Sabaragamuwa University of Sri Lanka",
+    "url": "https://your-domain.com",
+    "sameAs": [
+      "https://github.com/nngeek195",
+      "https://www.linkedin.com/in/niranga-nayanajith-548a0a302",
+      "https://www.hackerrank.com/profile/nngeek195"
+    ],
+    "knowsAbout": [
+      "Web Development",
+      "Cybersecurity",
+      "Python",
+      "JavaScript",
+      "C#",
+      "Java"
+    ],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Sabaragamuwa University of Sri Lanka",
+      "department": "Faculty of Computing"
+    }
+  }
+  </script>
+
+</body>
+</html>
+
+     
+    
+      
